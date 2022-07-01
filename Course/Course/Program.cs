@@ -1,5 +1,5 @@
 ﻿using System;
-using Tabuleiro;
+using tabuleiro;
 
 namespace Course
 {
@@ -7,11 +7,14 @@ namespace Course
     {
         static void Main(string[] args)
         {
-            Posicao P;
+            /*Posicao P;
             P = new Posicao(3, 4);
 
             Console.WriteLine("Posição: " + P);
-            Console.WriteLine();
+            Console.WriteLine();*/
+
+            Tabuleiro tab = new Tabuleiro(8, 8);
+
         }
     }
 }
