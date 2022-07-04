@@ -51,6 +51,11 @@ namespace Course
 
             //tab.ColocarPeca(new Peao(Cor.Preta, tab), new Posicao(0, 4)); // Erro pois já existe uma peça nessa posição
 
+            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+
+            Console.WriteLine(pos);
+            Console.WriteLine(pos.toPosicao());
+
             Tela.imprimirTabuleiro(tab);
         }
     }
