@@ -49,6 +49,8 @@ namespace Course
             }
 
 
+            //tab.ColocarPeca(new Peao(Cor.Preta, tab), new Posicao(0, 4)); // Erro pois já existe uma peça nessa posição
+
             Tela.imprimirTabuleiro(tab);
         }
     }
