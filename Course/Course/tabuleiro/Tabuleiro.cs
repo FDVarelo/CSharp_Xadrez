@@ -18,10 +18,38 @@
             return pecas[linha, coluna];
         }
 
+        public Peca peca(Posicao pos)
+        {
+            return pecas[pos.linha, pos.coluna];
+        }
+
         public void ColocarPeca(Peca p, Posicao pos)
         {
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
+        }
+
+        public bool posisaoValida(Posicao pos)  // verificar se as posições passadas estão na área limite do tabuleiro
+        {
+            if(pos.linha<0 || pos.coluna<0 || pos.linha>=linhas || pos.coluna >= colunas)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void validarPosicao(Posicao pos)
+        {
+            if (!posisaoValida(pos))
+            {
+                throw new TabuleiroException("Posição é inválida!");
+            }
+        }
+
+        public bool existePeca(Posicao pos)
+        {
+            validarPosicao(pos);
+            return peca(pos) != null;
         }
     }
 }
