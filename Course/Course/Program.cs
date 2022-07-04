@@ -48,13 +48,18 @@ namespace Course
                 }
             }
 
+            // Verificando o que acontece quando colamos uma peça em um local aonde já existe uma peça
+            //tab.ColocarPeca(new Peao(Cor.Preta, tab), new Posicao(0, 4)); 
 
-            //tab.ColocarPeca(new Peao(Cor.Preta, tab), new Posicao(0, 4)); // Erro pois já existe uma peça nessa posição
 
-            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+
+            // Passando as coordenadas das peças do modelo padrão de um jogo de xadrez, exemplo a0 até  h7
+            // Após isso ele ira transformar essa coordenada em char e int, em int para Posicao()
+
+            /*PosicaoXadrez pos = new PosicaoXadrez('c', 7);
 
             Console.WriteLine(pos);
-            Console.WriteLine(pos.toPosicao());
+            Console.WriteLine(pos.toPosicao());*/
 
             Tela.imprimirTabuleiro(tab);
         }
