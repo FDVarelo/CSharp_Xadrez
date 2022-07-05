@@ -23,7 +23,7 @@
             return pecas[pos.linha, pos.coluna];
         }
 
-        public void ColocarPeca(Peca p, Posicao pos)
+        public void colocarPeca(Peca p, Posicao pos)
         {
             if (existePeca(pos))
             {
@@ -33,6 +33,17 @@
             p.posicao = pos;
         }
 
+        public Peca retirarPeca(Posicao pos)
+        {
+            if (peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = peca(pos);
+            aux.posicao = null; // retira a peça do tabuleiro
+            pecas[pos.linha, pos.coluna] = null; // atualiza dizendo que a posição agora é nula
+            return aux; // retorna a peça
+        }
         public bool posisaoValida(Posicao pos)  // verificar se as posições passadas estão na área limite do tabuleiro
         {
             if(pos.linha<0 || pos.coluna<0 || pos.linha>=linhas || pos.coluna >= colunas)
