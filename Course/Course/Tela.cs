@@ -1,4 +1,5 @@
 ﻿using System;
+using xadrez;
 using tabuleiro;
 
 namespace Course
@@ -34,6 +35,15 @@ namespace Course
             Console.WriteLine("  a b c d e f g h"); // colunas letras
             Console.ForegroundColor = aux3;
             
+        }
+
+        public static PosicaoXadrez lerPosicaoXadrez() // Tem que ser PosicaoXadrez e não so Posicao, pois se não da erro quando for usando toPosicao.
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+
+            return new PosicaoXadrez(coluna, linha);
         }
 
         public static void imprimirPeca(Peca peca)
