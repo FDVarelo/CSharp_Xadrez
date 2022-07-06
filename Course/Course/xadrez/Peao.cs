@@ -26,7 +26,24 @@ namespace xadrez
             Posicao pos = new Posicao(0, 0);
 
             //frente
-            if (cor == Cor.Preta)
+             if (cor == Cor.Branca)
+            {
+                pos.definirValores(posicao.coluna, posicao.linha - 1);
+                if (tab.posicaoValida(pos) && podeMover(pos))
+                {
+                    mat[pos.coluna, pos.linha] = true;
+                }
+            }
+            else if(cor == Cor.Preta)
+            {
+                pos.definirValores(posicao.coluna, posicao.linha + 1 );
+                if (tab.posicaoValida(pos) && podeMover(pos))
+                {
+                    mat[pos.coluna, pos.linha] = true;
+                }
+            }
+
+            /*if (cor == Cor.Preta)
             {
                 pos.definirValores(posicao.coluna, posicao.linha + 1);
                 while (tab.posicaoValida(pos) && podeMover(pos))
@@ -52,9 +69,9 @@ namespace xadrez
                     }
                     pos.linha -= 1;
                 }
-            }
+            }*/
 
-            
+
             return mat;
         }
     }
