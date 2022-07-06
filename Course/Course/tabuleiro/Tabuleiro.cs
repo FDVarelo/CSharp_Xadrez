@@ -44,7 +44,7 @@
             pecas[pos.linha, pos.coluna] = null; // atualiza dizendo que a posição agora é nula
             return aux; // retorna a peça
         }
-        public bool posisaoValida(Posicao pos)  // verificar se as posições passadas estão na área limite do tabuleiro
+        public bool posicaoValida(Posicao pos)  // verificar se as posições passadas estão na área limite do tabuleiro
         {
             if(pos.linha<0 || pos.coluna<0 || pos.linha>=linhas || pos.coluna >= colunas)
             {
@@ -55,7 +55,7 @@
 
         public void validarPosicao(Posicao pos)
         {
-            if (!posisaoValida(pos))
+            if (!posicaoValida(pos))
             {
                 throw new TabuleiroException("Posição é inválida!");
             }
