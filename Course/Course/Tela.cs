@@ -18,7 +18,7 @@ namespace Course
                 
                 for (int j = 0; j < tab.colunas; j++)
                 { 
-                   Tela.imprimirPeca(tab.peca(i, j));    
+                   Tela.imprimirPeca(tab.peca(j, i));    
                 }
                 Console.WriteLine();
             }
@@ -42,7 +42,7 @@ namespace Course
 
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (posicoesPossiveis[i, j])
+                    if (posicoesPossiveis[j, i])
                     {
                         Console.BackgroundColor = fundoAlterado;
                     }
@@ -50,7 +50,7 @@ namespace Course
                     {
                         Console.BackgroundColor = fundoOriginal;
                     }
-                    Tela.imprimirPeca(tab.peca(i, j));
+                    Tela.imprimirPeca(tab.peca(j, i));
                 }
                 Console.WriteLine();
             }
