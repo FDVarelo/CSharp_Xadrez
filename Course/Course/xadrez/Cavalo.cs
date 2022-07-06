@@ -24,7 +24,7 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //nordeste
+            //nordeste (↑↑→)
             pos.definirValores(posicao.coluna + 1, posicao.linha - 2);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -32,7 +32,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //nordeste direita
+            //nordeste direita (→→↑)
             pos.definirValores(posicao.coluna + 2, posicao.linha - 1);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -40,7 +40,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //sudeste direita
+            //sudeste direita (→→↓)
             pos.definirValores(posicao.coluna + 2, posicao.linha + 1);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -48,7 +48,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //sudeste
+            //sudeste (↓↓→)
             pos.definirValores(posicao.coluna + 1, posicao.linha + 2);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -56,7 +56,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //sudoeste
+            //sudoeste (↓↓←)
             pos.definirValores(posicao.coluna - 1, posicao.linha + 2);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -64,7 +64,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //sudoeste esquerda
+            //sudoeste esquerda (←←↓)
             pos.definirValores(posicao.coluna - 2, posicao.linha + 1);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -72,7 +72,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //noroeste esquerda
+            //noroeste esquerda (←←↑)
             pos.definirValores(posicao.coluna - 2, posicao.linha - 1);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
@@ -80,7 +80,7 @@ namespace xadrez
                 mat[pos.coluna, pos.linha] = true;
             }
 
-            //noroeste
+            //noroeste (↑↑←)
             pos.definirValores(posicao.coluna - 1, posicao.linha - 2);
 
             if (tab.posicaoValida(pos) && podeMover(pos))
