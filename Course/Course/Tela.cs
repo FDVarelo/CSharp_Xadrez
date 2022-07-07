@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using xadrez;
 using tabuleiro;
 
@@ -6,6 +6,36 @@ namespace Course
 {
     class Tela
     {
+        public static void imprimirPartida(PartidaDeXadrez partida)
+        {
+            Tela.imprimirTabuleiro(partida.tab); // Inicia com o tabuleiro padrão.
+            imprimirPecasCapturadas(partida);
+            Console.WriteLine("\nTurno: " + partida.turno);
+            Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+        }
+
+        public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.WriteLine("\nPeças capturadas:");
+            Console.Write("Brancas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
+            Console.Write("Pretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+            Console.ForegroundColor= aux;
+        }
+
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach (Peca x in conjunto)
+            {
+                Console.Write(x + " ");
+            }
+            Console.WriteLine("]");
+        }
+
         public static void imprimirTabuleiro(Tabuleiro tab) // Imprimir o tabuleiro inicial.
         {
             for (int i = 0; i < tab.linhas; i++)
@@ -15,10 +45,10 @@ namespace Course
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write(8 - i + " "); // Número da linha.
                 Console.ForegroundColor = aux2;
-                
+
                 for (int j = 0; j < tab.colunas; j++)
-                { 
-                   Tela.imprimirPeca(tab.peca(j, i));    
+                {
+                    Tela.imprimirPeca(tab.peca(j, i));
                 }
                 Console.WriteLine();
             }
@@ -26,7 +56,7 @@ namespace Course
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("  a b c d e f g h"); // Letras das colunas.
             Console.ForegroundColor = aux3;
-            
+
         }
 
         public static void imprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis) // Imprimir o tabulei mostrando os possiveis movimentos.
@@ -48,7 +78,7 @@ namespace Course
                     }
                     else
                     {
-                        Console.BackgroundColor = fundoOriginal; 
+                        Console.BackgroundColor = fundoOriginal;
                     }
                     Tela.imprimirPeca(tab.peca(j, i));
                 }

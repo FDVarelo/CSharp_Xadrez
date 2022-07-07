@@ -34,6 +34,10 @@ namespace xadrez
             p.incrementarQtdeMovimentos();
             Peca pecaCapturada = tab.retirarPeca(destino); // caso tenha uma peca no destino, ela é capturada
             tab.colocarPeca(p, destino); // coloca a peça no destino final
+            if(pecaCapturada != null)
+            {
+                capturadas.Add(pecaCapturada);
+            }
         }
 
         public void realizaJogada(Posicao origem, Posicao destino)
@@ -82,6 +86,34 @@ namespace xadrez
                 throw new TabuleiroException("Posição de destino invalida!");
             }
         }
+
+        public HashSet<Peca> pecasCapturadas(Cor cor) // Peças capturadas, dada uma certa cor.
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach(Peca x in capturadas)
+            {
+                if(x.cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            return aux;
+        }
+
+        public HashSet<Peca> pecasEmJogo(Cor cor) // Peças capturadas, dada uma certa cor.
+        {
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in capturadas)
+            {
+                if (x.cor == cor)
+                {
+                    aux.Add(x);
+                }
+            }
+            aux.ExceptWith(pecasCapturadas(cor));
+            return aux;
+        }
+
 
         // Colocando peças no tabuleiro.
 

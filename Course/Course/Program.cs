@@ -39,9 +39,7 @@ namespace Course
                     try // Verificar se a origem que está sendo escolhida está OK.
                     {
                         Console.Clear();
-                        Tela.imprimirTabuleiro(partida.tab); // Inicia com o tabuleiro padrão.
-                        Console.WriteLine("\nTurno: " + partida.turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+                        Tela.imprimirPartida(partida);
 
                         Console.Write("\nDigite a posição de origem: ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
