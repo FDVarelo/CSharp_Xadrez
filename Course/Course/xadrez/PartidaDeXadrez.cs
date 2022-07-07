@@ -26,6 +26,8 @@ namespace xadrez
             colocarPecas();
         }
 
+        // Realização de movimentos
+
         public void executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.retirarPeca(origem); // tira peça da origem
@@ -51,6 +53,8 @@ namespace xadrez
                 jogadorAtual = Cor.Branca;
             }
         }
+
+        // Validação de posições.
 
         public void validarPosicaoDeOrigem(Posicao pos)
         {
@@ -78,6 +82,8 @@ namespace xadrez
                 throw new TabuleiroException("Posição de destino invalida!");
             }
         }
+
+        // Colocando peças no tabuleiro.
 
         public void colocarNovaPeca(char coluna, int linha, Peca peca)
         {

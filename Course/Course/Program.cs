@@ -1,4 +1,26 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------------------------//
+// * O funcionamento do código se da por:                                                   //
+//                                                                                          //
+// * Criar o tabuleiro padrão em \xadrez\PartidaDeXadrez.cs                                 //
+//                                                                                          //
+// * Criando as peças deste tabuleiro com seus movimentos em \xadrez                        //
+//                                                                                          //
+// * O funcionamento do tabuleiro se da por coluna x linha:                                 //
+//      - ex.: "a8" → matriz[0,0], como mostrado em \xadrez\PosicaoXadrez.cs                //
+//                                                                                          //
+// * Em \tabuleiro tem tudo referente ao tabuleiro:                                         //
+//      - Cores possíveis das peças em \tabuleiro\Cor.cs                                    //
+//      - Informações das peças, como cor, e tabela que ela está ligada \tabuleiro\Peca.cs  //
+//      - Por fim o tabuleiro em si (\tabuleiro\Tabuleiro.cs):                              //
+//          + Movimentação das peças                                                        //
+//          + Retirada das peças                                                            //
+//          + Verificação de posições das peças                                             //
+// -----------------------------------------------------------------------------------------//
+
+
+
+
+using System;
 using tabuleiro;
 using xadrez;
 
