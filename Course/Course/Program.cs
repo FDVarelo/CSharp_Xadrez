@@ -32,6 +32,8 @@ namespace Course
                         Console.Write("\nDigite a posição de destino: ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
 
+                        partida.validarPosicaoDeDestino(origem, destino);
+
                         partida.realizaJogada(origem, destino);
                     }
                     catch(TabuleiroException e)

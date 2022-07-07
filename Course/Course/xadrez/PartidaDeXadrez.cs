@@ -62,6 +62,14 @@ namespace xadrez
             }
         }
 
+        public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).podeMoverPara(destino))
+            {
+                throw new TabuleiroException("Posição de destino invalida!");
+            }
+        }
+
         private void colocarPecas()
         {
             tab.colocarPeca(new Torre(Cor.Preta, tab), new PosicaoXadrez('a', 8).toPosicao());
