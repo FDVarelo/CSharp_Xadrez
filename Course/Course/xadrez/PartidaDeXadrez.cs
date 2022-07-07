@@ -13,10 +13,10 @@ namespace xadrez
 
         public PartidaDeXadrez()
         {
-            tab = new Tabuleiro(8, 8);
-            turno = 1;
-            jogadorAtual = Cor.Branca;
-            terminada = false;
+            tab = new Tabuleiro(8, 8); // Tamanho da matriz do tabuleiro.
+            turno = 1; // Primeiro turno.
+            jogadorAtual = Cor.Branca; // Qual peça deve começar.
+            terminada = false; // Jogo continua até ser true.
             colocarPecas();
         }
 
@@ -34,7 +34,7 @@ namespace xadrez
             turno++;
             mudaJogador();
         }
-        public void mudaJogador()
+        public void mudaJogador() // chamada quando acaba a rodada de um jogador, fazendo assim mudar a cor do jogador atual.
         {
             if(jogadorAtual == Cor.Branca)
             {
@@ -48,15 +48,15 @@ namespace xadrez
 
         public void validarPosicaoDeOrigem(Posicao pos)
         {
-            if(tab.peca(pos) == null)
+            if(tab.peca(pos) == null) // Espaço sem peça.
             {
                 throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
             }
-            if(jogadorAtual != tab.peca(pos).cor)
+            if(jogadorAtual != tab.peca(pos).cor) // Peça adversaria.
             {
                 throw new TabuleiroException("A peça da origem escolhida não é a sua!");
             }
-            if (!tab.peca(pos).existeMovimentosPossiveis())
+            if (!tab.peca(pos).existeMovimentosPossiveis()) // Peça está presa, ou seja, não tem movimentos possíveis.
             {
                 throw new TabuleiroException("Não há movimentos possíveis para a peça de origem escolhida!");
             }
@@ -65,12 +65,15 @@ namespace xadrez
         public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
         {
             if (!tab.peca(origem).podeMoverPara(destino))
+            // Peça não pode fazer o movimento de origem → destino,
+            // ou por ter uma peça aliada no local,
+            // ou por não fazer parte da lista de movimentos possíveis da peça
             {
                 throw new TabuleiroException("Posição de destino invalida!");
             }
         }
 
-        private void colocarPecas()
+        private void colocarPecas() // Criando o tabuleiro de xadrez inicial.
         {
             tab.colocarPeca(new Torre(Cor.Preta, tab), new PosicaoXadrez('a', 8).toPosicao());
             tab.colocarPeca(new Torre(Cor.Preta, tab), new PosicaoXadrez('h', 8).toPosicao());
@@ -92,7 +95,7 @@ namespace xadrez
             tab.colocarPeca(new Dama(Cor.Branca, tab), new PosicaoXadrez('d', 1).toPosicao());
             tab.colocarPeca(new Rei(Cor.Branca, tab), new PosicaoXadrez('e', 1).toPosicao());
 
-            for (char i = 'a'; i <= 'h'; i++)
+            for (char i = 'a'; i <= 'h'; i++) // Colocando todos os peões.
             {
                 tab.colocarPeca(new Peao(Cor.Preta, tab), new PosicaoXadrez(i, 7).toPosicao());
                 tab.colocarPeca(new Peao(Cor.Branca, tab), new PosicaoXadrez(i, 2).toPosicao());

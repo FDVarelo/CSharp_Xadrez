@@ -12,7 +12,7 @@
             this.posicao = null;
             this.posicao = posicao;
             this.cor = cor;
-            this.qtdMovimentos = 0; // Como acabou de criar a peça, ela inicia com 0
+            this.qtdMovimentos = 0; // Como acabou de criar a peça, ela inicia com 0.
             this.tab = tab;
             
         }
@@ -24,7 +24,7 @@
 
         public bool existeMovimentosPossiveis()
         {
-            bool[,] mat = movimentosPossiveis(); // verificar se ha pelomenos um movimento possivel
+            bool[,] mat = movimentosPossiveis(); // Verificar se há pelo menos um movimento possível.
             for(int i = 0; i < tab.linhas; i++)
             {
                 for(int j = 0; j < tab.colunas; j++)
@@ -42,7 +42,7 @@
         {
             return movimentosPossiveis()[pos.coluna, pos.linha];
         }
-        public abstract bool[,] movimentosPossiveis();
+        public abstract bool[,] movimentosPossiveis(); // Criação de movimento possíveis para todas as peças.
 
     }
 }

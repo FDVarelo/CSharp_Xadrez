@@ -25,7 +25,7 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //frente
+            // Frente
              if (cor == Cor.Branca)
             {
                 pos.definirValores(posicao.coluna, posicao.linha - 1);

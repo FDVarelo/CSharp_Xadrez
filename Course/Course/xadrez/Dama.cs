@@ -25,7 +25,7 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            // acima
+            // Cima
             pos.definirValores(posicao.coluna, posicao.linha - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -37,7 +37,7 @@ namespace xadrez
                 pos.linha -= 1;
             }
 
-            // baixo
+            // Baixo
             pos.definirValores(posicao.coluna, posicao.linha + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -49,7 +49,7 @@ namespace xadrez
                 pos.linha += 1;
             }
 
-            // esquerda
+            // Esquerda
             pos.definirValores(posicao.coluna - 1, posicao.linha);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -61,7 +61,7 @@ namespace xadrez
                 pos.coluna -= 1;
             }
 
-            // direita
+            // Direita
             pos.definirValores(posicao.coluna + 1, posicao.linha);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -73,7 +73,7 @@ namespace xadrez
                 pos.coluna += 1;
             }
 
-            // nordeste
+            // Nordeste
             pos.definirValores(posicao.coluna + 1, posicao.linha - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -86,7 +86,7 @@ namespace xadrez
                 pos.linha -= 1;
             }
 
-            // sudeste
+            // Sudeste
             pos.definirValores(posicao.coluna + 1, posicao.linha + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -99,7 +99,7 @@ namespace xadrez
                 pos.linha -= 1;
             }
 
-            // sudoeste
+            // Sudoeste
             pos.definirValores(posicao.coluna - 1, posicao.linha + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -112,7 +112,7 @@ namespace xadrez
                 pos.linha += 1;
             }
 
-            // noroeste
+            // Noroeste
             pos.definirValores(posicao.coluna - 1, posicao.linha - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {

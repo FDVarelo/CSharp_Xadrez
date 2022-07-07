@@ -29,6 +29,8 @@ namespace xadrez
                 2 - - - - - - - -
                 1 - - - - - - - -
                   a b c d e f g h
+
+            então, ex.: "a8" →  'a' - 'a' = 0 | 8 - 8 = 0, ou seja, Matriz[0,0]
             */
         }
 

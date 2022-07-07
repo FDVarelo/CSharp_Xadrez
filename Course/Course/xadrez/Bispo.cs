@@ -25,7 +25,7 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //nordeste
+            // Nordeste
             pos.definirValores(posicao.coluna + 1, posicao.linha - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -38,7 +38,7 @@ namespace xadrez
                 pos.linha -= 1;
             }
 
-            //sudeste
+            // Sudeste
             pos.definirValores(posicao.coluna + 1, posicao.linha + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -51,7 +51,7 @@ namespace xadrez
                 pos.linha += 1;
             }
 
-            //sudoeste
+            // Sudoeste
             pos.definirValores(posicao.coluna - 1, posicao.linha + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
@@ -64,7 +64,7 @@ namespace xadrez
                 pos.linha += 1;
             }
 
-            //noroeste
+            // Noroeste
             pos.definirValores(posicao.coluna - 1, posicao.linha - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {

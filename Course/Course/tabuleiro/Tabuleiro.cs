@@ -25,7 +25,7 @@
 
         public void colocarPeca(Peca p, Posicao pos)
         {
-            if (existePeca(pos))
+            if (existePeca(pos)) // verificar já existe uma peça aliada na posição que deseja ser colocada.
             {
                 throw new TabuleiroException("Já existe uma peça sua nessa posição!");
             }
@@ -40,11 +40,11 @@
                 return null;
             }
             Peca aux = peca(pos);
-            aux.posicao = null; // retira a peça do tabuleiro
-            pecas[pos.coluna, pos.linha] = null; // atualiza dizendo que a posição agora é nula
-            return aux; // retorna a peça
+            aux.posicao = null; // Retira a peça do tabuleiro.
+            pecas[pos.coluna, pos.linha] = null; // Atualiza dizendo que a em que a peça estava, agora é nula.
+            return aux; // Retorna a peça.
         }
-        public bool posicaoValida(Posicao pos)  // verificar se as posições passadas estão na área limite do tabuleiro
+        public bool posicaoValida(Posicao pos)  // Verificar se as posições passadas estão na área limite do tabuleiro.
         {
             if(pos.coluna<0 || pos.linha<0 || pos.coluna>=colunas || pos.linha >= linhas)
             {
