@@ -21,57 +21,27 @@ namespace xadrez
 
         public override bool[,] movimentosPossiveis()
         {
-            bool[,] mat = new bool[tab.colunas, tab.linhas];
+            bool[,] mat = new bool[tab.linhas, tab.colunas];
 
             Posicao pos = new Posicao(0, 0);
 
             // Frente
              if (cor == Cor.Branca)
             {
-                pos.definirValores(posicao.coluna, posicao.linha - 1);
+                pos.definirValores(posicao.linha - 1, posicao.coluna);
                 if (tab.posicaoValida(pos) && podeMover(pos))
                 {
-                    mat[pos.coluna, pos.linha] = true;
+                    mat[pos.linha, pos.coluna] = true;
                 }
             }
             else if(cor == Cor.Preta)
             {
-                pos.definirValores(posicao.coluna, posicao.linha + 1 );
+                pos.definirValores(posicao.linha + 1, posicao.coluna);
                 if (tab.posicaoValida(pos) && podeMover(pos))
                 {
-                    mat[pos.coluna, pos.linha] = true;
+                    mat[pos.linha, pos.coluna] = true;
                 }
             }
-
-            /*if (cor == Cor.Preta)
-            {
-                pos.definirValores(posicao.coluna, posicao.linha + 1);
-                while (tab.posicaoValida(pos) && podeMover(pos))
-                {
-                    mat[pos.coluna, pos.linha] = true;
-                    if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                    {
-                        break;
-                    }
-                    pos.linha += 1;
-                }
-            }
-
-            if (cor == Cor.Branca)
-            {
-                pos.definirValores(posicao.coluna, posicao.linha - 1);
-                while (tab.posicaoValida(pos) && podeMover(pos))
-                {
-                    mat[pos.coluna, pos.linha] = true;
-                    if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                    {
-                        break;
-                    }
-                    pos.linha -= 1;
-                }
-            }*/
-
-
             return mat;
         }
     }

@@ -16,7 +16,7 @@ namespace xadrez
 
         public Posicao toPosicao()
         {
-            return new Posicao(coluna - 'a', 8 - linha); 
+            return new Posicao(8 - linha, coluna - 'a'); 
             // Considerando que: ↓
             /* Onde - é os possiveis locais onde as peças pode ser colocadas.
              

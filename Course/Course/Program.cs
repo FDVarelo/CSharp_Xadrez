@@ -57,7 +57,7 @@ namespace Course
 
                         partida.realizaJogada(origem, destino); // Realiza o movimento.
                     }
-                    catch(TabuleiroException e) // Ocorreu um erro na escolha da origem ou destino.
+                    catch (TabuleiroException e) // Ocorreu um erro na escolha da origem ou destino.
                     {
                         Console.WriteLine(e.Message); // Erro que aconteceu.
                         Console.WriteLine("Aperte Enter para tentar novamente."); // Tentar novamente.
@@ -66,7 +66,7 @@ namespace Course
                 }
 
             }
-            catch(TabuleiroException e)
+            catch (TabuleiroException e)
             {
                 Console.WriteLine(e.Message);
             }

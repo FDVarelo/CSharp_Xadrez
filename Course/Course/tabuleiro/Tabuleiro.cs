@@ -6,21 +6,21 @@
         public int linhas { get; set; }
         private Peca[,] pecas;
 
-        public Tabuleiro(int colunas, int linhas)
+        public Tabuleiro(int linhas, int colunas)
         {
             this.colunas = colunas;
             this.linhas = linhas;
-            pecas = new Peca[colunas,linhas];
+            pecas = new Peca[linhas, colunas];
         }
 
-        public Peca peca(int coluna, int linha)
+        public Peca peca(int linha, int coluna)
         {
-            return pecas[coluna, linha];
+            return pecas[linha, coluna];
         }
 
         public Peca peca(Posicao pos)
         {
-            return pecas[pos.coluna, pos.linha];
+            return pecas[pos.linha, pos.coluna];
         }
 
         public void colocarPeca(Peca p, Posicao pos)
@@ -29,7 +29,7 @@
             {
                 throw new TabuleiroException("Já existe uma peça sua nessa posição!");
             }
-            pecas[pos.coluna, pos.linha] = p;
+            pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
 
@@ -41,12 +41,12 @@
             }
             Peca aux = peca(pos);
             aux.posicao = null; // Retira a peça do tabuleiro.
-            pecas[pos.coluna, pos.linha] = null; // Atualiza dizendo que a em que a peça estava, agora é nula.
+            pecas[pos.linha, pos.coluna] = null; // Atualiza dizendo que a em que a peça estava, agora é nula.
             return aux; // Retorna a peça.
         }
         public bool posicaoValida(Posicao pos)  // Verificar se as posições passadas estão na área limite do tabuleiro.
         {
-            if(pos.coluna<0 || pos.linha<0 || pos.coluna>=colunas || pos.linha >= linhas)
+            if (pos.coluna < 0 || pos.linha < 0 || pos.coluna >= colunas || pos.linha >= linhas)
             {
                 return false;
             }

@@ -14,20 +14,24 @@
             this.cor = cor;
             this.qtdMovimentos = 0; // Como acabou de criar a peça, ela inicia com 0.
             this.tab = tab;
-            
+
         }
 
         public void incrementarQtdeMovimentos()
         {
             qtdMovimentos++;
         }
+        public void decrementarQtdeMovimentos()
+        {
+            qtdMovimentos--;
+        }
 
         public bool existeMovimentosPossiveis()
         {
             bool[,] mat = movimentosPossiveis(); // Verificar se há pelo menos um movimento possível.
-            for(int i = 0; i < tab.linhas; i++)
+            for (int i = 0; i < tab.linhas; i++)
             {
-                for(int j = 0; j < tab.colunas; j++)
+                for (int j = 0; j < tab.colunas; j++)
                 {
                     if (mat[i, j])
                     {
@@ -40,7 +44,7 @@
 
         public bool podeMoverPara(Posicao pos)
         {
-            return movimentosPossiveis()[pos.coluna, pos.linha];
+            return movimentosPossiveis()[pos.linha, pos.coluna];
         }
         public abstract bool[,] movimentosPossiveis(); // Criação de movimento possíveis para todas as peças.
 

@@ -12,6 +12,10 @@ namespace Course
             imprimirPecasCapturadas(partida);
             Console.WriteLine("\nTurno: " + partida.turno);
             Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
+            if (partida.xeque)
+            {
+                Console.WriteLine("XEQUE!");
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
@@ -23,7 +27,7 @@ namespace Course
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
             imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
-            Console.ForegroundColor= aux;
+            Console.ForegroundColor = aux;
         }
 
         public static void imprimirConjunto(HashSet<Peca> conjunto)
@@ -43,18 +47,18 @@ namespace Course
 
                 ConsoleColor aux2 = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write(8 - i + " "); // Número da linha.
+                Console.Write(8 - i + " "); // Número da coluna.
                 Console.ForegroundColor = aux2;
 
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    Tela.imprimirPeca(tab.peca(j, i));
+                    Tela.imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
             ConsoleColor aux3 = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("  a b c d e f g h"); // Letras das colunas.
+            Console.WriteLine("  a b c d e f g h"); // Letras das linhas.
             Console.ForegroundColor = aux3;
 
         }
@@ -67,12 +71,12 @@ namespace Course
             {
                 ConsoleColor aux2 = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write(8 - i + " "); // Número da linha.
+                Console.Write(8 - i + " "); // Número da coluna.
                 Console.ForegroundColor = aux2;
 
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (posicoesPossiveis[j, i]) // Caso seja uma posição que a peça pode se mover.
+                    if (posicoesPossiveis[i, j]) // Caso seja uma posição que a peça pode se mover.
                     {
                         Console.BackgroundColor = fundoAlterado; // Mudar a cor de fundo para mostrar que o local é disponivel.
                     }
@@ -80,13 +84,13 @@ namespace Course
                     {
                         Console.BackgroundColor = fundoOriginal;
                     }
-                    Tela.imprimirPeca(tab.peca(j, i));
+                    Tela.imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
             }
             ConsoleColor aux3 = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("  a b c d e f g h"); // Letras das colunas.
+            Console.WriteLine("  a b c d e f g h"); // Letras das linhas.
             Console.ForegroundColor = aux3;
             Console.BackgroundColor = fundoOriginal;
 
@@ -96,10 +100,10 @@ namespace Course
                                                        // caso contrario, apresenta erro ao utiliza toPosicao no Program.cs.
         {
             string s = Console.ReadLine(); // Ler a entrada do usuário, ex.: "a1".
-            char coluna = s[0]; // pega a coluna 'a'.
-            int linha = int.Parse(s[1] + ""); // pega a linha '1'.
+            char coluna = s[0]; // pega a linha 'a'.
+            int linha = int.Parse(s[1] + ""); // pega a coluna '1'.
 
-            return new PosicaoXadrez(coluna, linha); // Retorna a posição como coluna e linha.
+            return new PosicaoXadrez(coluna, linha); // Retorna a posição como linha e coluna.
         }
 
         public static void imprimirPeca(Peca peca)
