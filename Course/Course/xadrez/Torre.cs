@@ -30,7 +30,7 @@ namespace xadrez
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
-                if(tab.peca(pos)!=null && tab.peca(pos).cor != cor)
+                if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
                 {
                     break;
                 }

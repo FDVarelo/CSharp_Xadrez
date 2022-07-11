@@ -44,7 +44,7 @@ namespace xadrez
             }
 
             // #jogadaespecial roque
-            if(p is Rei && destino.coluna == origem.coluna + 2)
+            if (p is Rei && destino.coluna == origem.coluna + 2)
             {
                 Posicao origemDaTorre = new Posicao(origem.linha, origem.coluna + 3);
                 Posicao destinoDaTorre = new Posicao(origem.linha, origem.coluna + 1);
@@ -304,12 +304,12 @@ namespace xadrez
             {
                 return false;
             }
-            foreach(Peca x in pecasEmJogo(cor))
+            foreach (Peca x in pecasEmJogo(cor))
             {
                 bool[,] mat = x.movimentosPossiveis();
-                for(int i = 0; i < tab.linhas; i++)
+                for (int i = 0; i < tab.linhas; i++)
                 {
-                    for(int j = 0; j < tab.colunas; j++)
+                    for (int j = 0; j < tab.colunas; j++)
                     {
                         if (mat[i, j])
                         {
@@ -339,34 +339,6 @@ namespace xadrez
         }
         private void colocarPecas() // Criando o tabuleiro de xadrez inicial.
         {
-            colocarNovaPeca('d', 8, new Dama(Cor.Preta, tab));
-            colocarNovaPeca('e', 8, new Rei(Cor.Preta, tab, this));
-            colocarNovaPeca('d', 1, new Dama(Cor.Branca, tab));
-            colocarNovaPeca('e', 1, new Rei(Cor.Branca, tab, this));
-
-            for (char i = 'a'; i <= 'h'; i++) // Colocando todos os peões.
-            {
-                colocarNovaPeca(i, 7, new Peao(Cor.Preta, tab, this));
-                colocarNovaPeca(i, 2, new Peao(Cor.Branca, tab, this));
-            }
-
-            // Teste.
-
-            /*colocarNovaPeca('c', 8, new Torre(Cor.Preta, tab));
-            colocarNovaPeca('e', 8, new Torre(Cor.Preta, tab));
-            colocarNovaPeca('c', 7, new Torre(Cor.Preta, tab));
-            colocarNovaPeca('e', 7, new Torre(Cor.Preta, tab));
-            colocarNovaPeca('d', 7, new Torre(Cor.Preta, tab));
-            colocarNovaPeca('d', 8, new Rei(Cor.Preta, tab, this));
-
-
-            colocarNovaPeca('c', 1, new Torre(Cor.Branca, tab));
-            colocarNovaPeca('e', 1, new Torre(Cor.Branca, tab));
-            colocarNovaPeca('c', 2, new Torre(Cor.Branca, tab));
-            colocarNovaPeca('e', 2, new Torre(Cor.Branca, tab));
-            colocarNovaPeca('d', 2, new Torre(Cor.Branca, tab));
-            colocarNovaPeca('d', 1, new Rei(Cor.Branca, tab, this));*/
-            /*
             colocarNovaPeca('a', 8, new Torre(Cor.Preta, tab));
             colocarNovaPeca('h', 8, new Torre(Cor.Preta, tab));
             colocarNovaPeca('a', 1, new Torre(Cor.Branca, tab));
@@ -391,7 +363,7 @@ namespace xadrez
             {
                 colocarNovaPeca(i, 7, new Peao(Cor.Preta, tab, this));
                 colocarNovaPeca(i, 2, new Peao(Cor.Branca, tab, this));
-            }*/
+            }
         }
     }
 }
